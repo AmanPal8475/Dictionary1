@@ -21,8 +21,12 @@ async function wordformeaning(word){
         try {
             const response = await fetch(url, options);
             const result = await response.json();
-            console.log(result);
+            
             let string1 =  (result?.definition);
+            if(string1 == ""){
+                alert("word not found");
+                return;
+            }
             let string2  =  string1.split(";",4);
 
             let ans = "";
